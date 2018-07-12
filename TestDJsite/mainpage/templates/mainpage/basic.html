@@ -1,0 +1,11 @@
+{% extends "mainpage/header.html" %}
+
+{% block content %}
+
+    {%for item in text%}
+        <p>{{ item }}</p>
+    {%endfor%}
+    <br>
+    <p> {{text}} </p>
+
+{% endblock %}
