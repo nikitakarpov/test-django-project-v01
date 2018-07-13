@@ -19,5 +19,6 @@ from django.urls import path, re_path, include
 urlpatterns = [
     re_path(r'^admin/', admin.site.urls),
     re_path(r'^firstapp/', include('firstApp.urls')),
-    re_path(r'^$', include('mainpage.urls'))
+    re_path(r'^$', include('mainpage.urls')),
+    re_path(r'^front-test', include('front_test_app.urls'))
 ]
