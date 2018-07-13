@@ -35,7 +35,9 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'firstApp',
      'mainpage',
-    'front_test_app',
+
+    'front_test_1',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
