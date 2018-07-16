@@ -21,4 +21,5 @@ urlpatterns = [
     re_path(r'^firstapp/', include('firstApp.urls')),
     re_path(r'^', include('mainpage.urls')),
     re_path(r'^front-test-1/', include('front_test_1.urls')),
-    #re_path(r'^blog/', include('blog.urls')),
+    #re_path(r'^blog/', include('blog.urls'))
+]
