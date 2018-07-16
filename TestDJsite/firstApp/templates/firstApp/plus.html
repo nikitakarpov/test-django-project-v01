@@ -1,0 +1,17 @@
+{% extends 'firstApp/base_html_firstapp.html' %}
+
+{% block title %}
+PLUS
+{% endblock %}
+
+{% block content %}
+<p>It is now {{ now }}</p>
+<p>In {{ offset }} hour(s) it will be {{ dt }}</p>
+{% endblock %}
+
+{% block footer %}
+<br>
+<hr>
+<p>Overrided footer!!!</p>
+<p>Thanks for visiting my site.</p>
+{% endblock %}
