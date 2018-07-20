@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, re_path, include
-from firstApp.views import display_meta
+from firstApp.views import display_meta, search, test_request
 
 urlpatterns = [
     re_path(r'^admin/', admin.site.urls),
@@ -23,5 +23,6 @@ urlpatterns = [
     re_path(r'^', include('mainpage.urls')),
     re_path(r'^front-test-1/', include('front_test_1.urls')),
     #re_path(r'^blog/', include('blog.urls'))
-    re_path(r'^search/', display_meta)
+    re_path(r'^search/', search),
+    re_path(r'^test_request/', test_request)
 ]

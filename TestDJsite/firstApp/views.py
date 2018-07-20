@@ -1,7 +1,7 @@
 from django.shortcuts import render
-
 from django.http import HttpResponse, Http404, HttpRequest
 import datetime
+from firstApp.models import Book
 
 def hey(request):
     return HttpResponse('<h2>HEY!</h2>')
@@ -30,11 +30,18 @@ def search_form(request):
 
 
 def search(request):
-    if 'q' in request.GET:
-        message='You searched for: {}'.format(request.GET['q'])
+    if 'qq' in request.GET and request.GET['qq']:
+        qq=request.GET['qq']
+
+        books=Book.objects.filter(title__icontains=qq)
+
+        context={'books':books, 'query':qq}
+
+        return render(request, 'firstApp/search_results.html', context)
     else:
-        message = 'You searched an empty form!'
-    return HttpResponse(message)
+        return render(request, 'firstApp/search_form.html', {'error':True} )
+
+
 
 def display_meta(request):
     values = request.META.items()
@@ -43,6 +50,7 @@ def display_meta(request):
         html.append('<tr><td>{}</td><td>{}</td></tr>'.format(k, v))
     return HttpResponse('<table>{}</table>'.join(html))
 
-
+def test_request (request):
+    return HttpResponse(request.META)
 
 
