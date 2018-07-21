@@ -9,18 +9,19 @@ class Publisher (models.Model):
     website=models.URLField()
 
     def __str__(self):
-        return 'Publisher {}; address - {}'.format(self.name, self.address)
+        return '{}'.format(self.name)
+
 
 
 class Author (models.Model):
     salutation=models.CharField(max_length=10)
     first_name=models.CharField(max_length=30)
     last_name=models.CharField(max_length=40)
-    email=models.EmailField()
-    headshot=models.ImageField(upload_to='img')
+    email=models.EmailField(blank=True, verbose_name='email address')
+    headshot=models.ImageField(upload_to='media')
 
     def __str__(self):
-        return 'Author {} {}'.format(self.first_name, self.last_name)
+        return '{} {}'.format(self.first_name, self.last_name)
 
 
 class Book (models.Model):
@@ -30,4 +31,5 @@ class Book (models.Model):
     publication_date=models.DateTimeField()
 
     def __str__(self):
-        return 'Book {}'.format(self.title)
+        return '{}'.format(self.title)
+
