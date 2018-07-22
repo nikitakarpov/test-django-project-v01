@@ -34,7 +34,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'firstApp',
-     'mainpage',
+    'mainpage',
     'front_test_1',
     'blog',
     'django.contrib.admin',
@@ -131,3 +131,9 @@ STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'nikkarpovdjango@gmail.com'
+EMAIL_HOST_PASSWORD = 'll56375122'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
