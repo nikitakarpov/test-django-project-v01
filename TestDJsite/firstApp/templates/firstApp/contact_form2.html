@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load staticfiles %}
+    <link rel="icon" href="{% static 'profile.jpg' %} ">
+    <title>Contact3 us</title>
+</head>
+
+<body>
+    <h1>Contact us</h1>
+
+  {% if form.errors %}
+        <p style="color: red;">
+            Please correct the error{{ form.errors|pluralize }} below.
+        </p>
+    {% endif %}
+
+    <form action="/contact3/" method="post">{% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="Submit">
+    </form>
+   <br>{{ method_get }}
+    <br>{{ method_post }}
+
+</body>
+</html>

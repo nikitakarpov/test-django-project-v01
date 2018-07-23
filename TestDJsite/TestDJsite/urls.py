@@ -26,5 +26,6 @@ urlpatterns = [
     re_path(r'^test_request/', views.test_request),
     re_path(r'^mailtest/', views.mailtest),
     re_path(r'^contact/thanks/', views.contact_thanks),
-    re_path(r'^contact2/', views.contact)
+    re_path(r'^contact2/', views.contact),
+    re_path(r'^contact3/', views.contact3)
 ]

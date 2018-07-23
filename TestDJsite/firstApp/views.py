@@ -3,6 +3,7 @@ from django.http import HttpResponse, Http404, HttpRequest, HttpResponseRedirect
 import datetime
 from firstApp.models import Book
 from django.core.mail import send_mail
+from firstApp.forms import ContactForm
 
 def hey(request):
     return HttpResponse('<h2>HEY!</h2>')
@@ -100,6 +101,30 @@ def contact(request):
 
 def contact_thanks(request):
     return HttpResponse('Thanks for message!')
+
+
+def contact3(request):
+    if request.method=='POST':
+        form=ContactForm(request.POST)
+        if form.is_valid():
+            cd=form.cleaned_data
+            send_mail(
+                cd['subject'],
+                cd['message'],
+                cd.get('email', ''),
+                ['nikitakarpov2013@gmail.com']
+            )
+            return HttpResponseRedirect('/contact/thanks/')
+    else:
+        form=ContactForm()
+
+    return render(request, 'firstApp/contact_form2.html',
+                  {
+                      'method_get': ('GET -', request.GET),
+                      'method_post': ('POST - ', request.POST),
+                      'form':form
+                  }
+                  )
 
 
 
